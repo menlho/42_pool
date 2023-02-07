@@ -1,38 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 00:54:25 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/07 15:46:19 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/07 21:04:05 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/07 21:10:00 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*void	ft_swap_el(int *a, int* b)
-{
-	int	temp;
-
-	temp =  *a;
-	*a = *b;
-	*b = temp;
-}*/
-
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
-	int	j;
-	int	temp;
 
 	i = 0;
-	j = size - 1;
-	while (i < (size / 2))
+	while (src[i])
 	{
-		temp = tab[i];
-		tab[i] = tab[j];
-		tab[j] = temp;
+		dest[i] = src[i];
 		i++;
-		j--;
 	}
+	return (dest);
 }
