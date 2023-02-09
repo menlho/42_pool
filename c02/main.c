@@ -6,7 +6,7 @@
 /*   By: momascle <momascle@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 03:01:41 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/09 05:16:28 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/09 22:40:41 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_str_is_uppercase(char *str);
 int	ft_str_is_printable(char *str);
 char	*ft_strupcase(char *src);
 char	*ft_strlowcase(char *src);
+char	*ft_strcapitalize(char *src);
 
 int	main(void)
 {
@@ -34,7 +35,7 @@ int	main(void)
 	char	lower[] = "efjeigfjeg";
 	char	upper[] = "DFEKFEHHIFGB";
 	char	printable[] = "fe fekfhb wfkb";
-	
+	char	minme[] = "JE NE SUIS PAS EN MInusculES";
 
 
 	printf("%s\n", ft_strcpy(dest, src));
@@ -49,5 +50,6 @@ int	main(void)
 	printf("printable : %d \n", ft_str_is_printable(printable));
 	printf("MAJED alpha :  %s \n", ft_strupcase(alpha));
 	printf("lowered alpha : %s \n", ft_strlowcase(alpha));
+	printf("strcapitalize : %s \n", ft_strcapitalize(minme));
 
 }

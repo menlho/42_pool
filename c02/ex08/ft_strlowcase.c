@@ -6,15 +6,15 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 04:56:40 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/09 05:16:05 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:25:59 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
 	int	i;
-	i = 0;
 
+	i = 0;
 	while (*str)
 	{
 		if (*str >= 'A' && *str <= 'Z')
@@ -24,4 +24,3 @@ char	*ft_strlowcase(char *str)
 	}
 	return (str - i);
 }
-
