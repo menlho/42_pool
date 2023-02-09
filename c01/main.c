@@ -6,7 +6,7 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 19:06:54 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/07 01:19:03 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:00:38 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -70,6 +70,7 @@ int		main(void)
 		printf("%d", numbers[i]);
 		i++;
 	}
+	printf("\n");
 	ft_rev_int_tab(numbers, 6);
 	i = 0;
 	while (i < 6)
