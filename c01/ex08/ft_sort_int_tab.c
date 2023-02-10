@@ -5,8 +5,9 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 16:13:03 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/09 16:16:13 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/10 11:47:16 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/10 11:54:19 by momascle         ###   ########.fr       */
+>>>>>>> 815fbf5 (fixed sigabort pivot outside if condition)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +46,13 @@ void	ft_quicksort(int *tab, int low, int high)
 {
 	int	pi;
 
-	pi = ft_partition(tab, low, high);
+	pi = 0;
+
 	if (low < high)
 	{
+		pi = ft_partition(tab, low, high);
+
+>>>>>>> 815fbf5 (fixed sigabort pivot outside if condition)
 		ft_quicksort(tab, low, pi - 1);
 		ft_quicksort(tab, pi + 1, high);
 	}
