@@ -6,9 +6,25 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:09:32 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/09 23:02:04 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/11 02:02:44 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	is_letter(char c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	else
+		return (0);
+}
+
+int	is_delimiter(char c)
+{
+	if ((c >= 32 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96))
+		return (1);
+	else
+		return (0);
+}
+
 void	ft_lowerit(char *str)
 {
 	int	i;
@@ -24,14 +40,20 @@ void	ft_lowerit(char *str)
 
 char	*ft_strcapitalize(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	ft_lowerit(str);
-	while(str[i])
+	if (is_letter(str[0]) == 1)
 	{
-		if (is_space(str[i] == 1))
+			str[0] -= 32;
 			i++;
+	}
+	while (str[i])
+	{
+		if (is_letter(str[i]) && (is_delimiter(str[i - 1])))
+			str[i] -= 32;
+		i++;
 	}
 	return (str);
 }
