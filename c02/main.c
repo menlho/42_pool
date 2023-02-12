@@ -6,10 +6,9 @@
 /*   By: momascle <momascle@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 03:01:41 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/11 04:00:34 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/11 04:17:43 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
 #include <stdio.h>
 
 char	*ft_strcpy(char *dest, char *src);
@@ -57,6 +56,5 @@ int	main(void)
 	printf("strcapitalize : %s \n", ft_strcapitalize(test1));
 	printf("strlcpy : %s\n", nbrs);
 	printf("strlcpy len : %d\n", ft_strlcpy(nbrs, alpha, 6));
-	//printf("strlcpy real len : %lu\n", strlcpy(nbrs, alpha, 6));
 	printf("strlcpy : %s\n", nbrs); 
 }

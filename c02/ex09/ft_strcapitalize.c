@@ -6,7 +6,7 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:09:32 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/11 02:02:44 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:33:35 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	is_letter(char c)
@@ -19,7 +19,8 @@ int	is_letter(char c)
 
 int	is_delimiter(char c)
 {
-	if ((c >= 32 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96))
+	if ((c >= 0 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96)
+		|| (c >= 123 && c >= 127))
 		return (1);
 	else
 		return (0);
