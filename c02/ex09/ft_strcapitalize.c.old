@@ -5,18 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 18:54:48 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/12 18:56:32 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/09 22:09:32 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/11 20:33:35 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-void	lowerstr(char *str)
+int	is_letter(char c)
 {
-	while (*str != '\0')
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	else
+		return (0);
+}
+
+int	is_delimiter(char c)
+{
+	if ((c >= 0 && c <= 47) || (c >= 58 && c <= 64) || (c >= 91 && c <= 96)
+		|| (c >= 123 && c >= 127))
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_lowerit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if (*str >= 'A' && *str <= 'Z')
-			*str += 32;
-		str++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
 	}
 }
 
@@ -25,19 +44,17 @@ char	*ft_strcapitalize(char *str)
 	int	i;
 
 	i = 0;
-	lowerstr(str);
-	if (str[i] >= 'a' && str[i] <= 'z')
-		str[i] -= 32;
+	ft_lowerit(str);
+	if (is_letter(str[0]) == 1)
+	{
+			str[0] -= 32;
+			i++;
+	}
 	while (str[i])
 	{
-		if (!((str[i] >= 'A' && str[i] <= 'Z')
-				|| (str[i] >= '0' && str[i] <= '9')
-				|| (str[i] >= 'a' && str[i] <= 'z')))
-		{
-			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
-				str[i + 1] -= 32;
-		}
-	i++;
+		if (is_letter(str[i]) && (is_delimiter(str[i - 1])))
+			str[i] -= 32;
+		i++;
 	}
 	return (str);
 }
