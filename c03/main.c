@@ -6,7 +6,7 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 04:17:55 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/12 06:20:28 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/13 04:02:22 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -26,6 +26,8 @@ int main(void)
 	char	str2[] = "hi ah";
 	char	str3[50] = "bonjour";
 	char	str4[] = "les amis !";
+	char	buff[50] = "je suis xptdr ";
+	char	buff2[50] = "je suis mdr ";
 	printf("real : %d\n", strcmp(str1, str2));
 	printf("fake : %d\n", ft_strcmp(str1, str2));
 	printf("real : %d\n", strncmp(str1, str2, 4));
@@ -37,7 +39,12 @@ int main(void)
 	printf("Angie la plus belle\n");
 	printf("real : %s\n", strstr("Angie la plus belle te definit", "belle"));
 	printf("fake : %s\n", ft_strstr("Angie la plus belle te definit", "belle"));
-	printf("fake : %d\n", ft_strlcat("coucou ", "les amis !", 6));
-	printf("real: %lu\n", strlcat("coucou ", "les amis !", 6));
+	printf("-----------------------AVANT------------------\n");
+	printf("%s\n", buff);
+	printf("-----------------------APRES------------------\n");
+	printf("real: %lu\n", strlcat(buff , "hihiAAHAAHJAHAHAHAH", 40));
+	printf("fake : %d\n", ft_strlcat(buff2 , "hihiOHOHOHOHO", 40));
+	printf("%s\n", buff);
+	printf("%s\n", buff2);
 
 }
