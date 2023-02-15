@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 07:35:16 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/15 18:33:09 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/15 18:42:14 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/15 19:09:15 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_atoi(char *str)
+
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
-	int	sign;
+	int	mult;
 	int	res;
 
-	i = 0;
-	sign = 0;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	mult = 1;
+	res = 1;
+	if (nb < 0)
+		return (0);
+	while (mult <= nb)
 	{
-		if (str[i] == '-')
-			sign++;
-		i++;
+		res *= mult;
+		mult++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	if (sign % 2 == 0)
-		return (res);
-	return (res * (-1));
+	return (res);
 }

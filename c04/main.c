@@ -6,11 +6,12 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 06:42:38 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/13 07:45:32 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:32:24 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int	ft_strlen(char *str);
 char	ft_putstr(char *str);
@@ -42,6 +43,13 @@ int	main(void)
 	printf("2540 --> %d\n", ft_atoi("2540"));
 	printf("-2540 --> %d\n", ft_atoi("-2540"));
 	printf("-2540 --> %d\n", ft_atoi("-----------2540"));
-	printf("2540 --> %d\n", ft_atoi("++-+-+-+---+25def40"));
+	printf("25 --> %d\n", ft_atoi("++-+-+-+---+25def40"));
+	printf("+2147483647 fake --> %d\n", ft_atoi("++2147483647"));
+	printf("+2147483647 real --> %d\n", atoi("++2147483647"));
+	printf("-2147483648 --> %d\n", ft_atoi("-+2147483648"));
+	printf("-2147483649 fake --> %d\n", ft_atoi("-+2147483649"));
+	printf("-2147483649 real --> %d\n", atoi("-+2147483649"));
+	printf("-214748 fake--> %d\n", ft_atoi("-------------+214748"));
+	printf("-214748 real--> %d\n", atoi("-------------+214748"));
 	
 }

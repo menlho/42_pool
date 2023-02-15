@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 07:35:16 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/15 18:33:09 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/15 21:25:10 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/15 22:19:48 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int	ft_atoi(char *str)
+
+int	ft_iterative_power(int nb, int power)
 {
-	int	i;
-	int	sign;
+	int	mult;
 	int	res;
 
-	i = 0;
-	sign = 0;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
-		i++;
-	while ((str[i] == '+') || (str[i] == '-'))
+	res = 1;
+	mult = 1;
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power == 1)
+		return (nb);
+	while (mult <= power)
 	{
-		if (str[i] == '-')
-			sign++;
-		i++;
+		res *= nb;
+		mult++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	if (sign % 2 == 0)
-		return (res);
-	return (res * (-1));
+	return (res);
 }
