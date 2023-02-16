@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/15 21:53:03 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/15 22:37:34 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/16 14:35:07 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/16 15:48:08 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_power(int nb, int power)
+int	ft_is_prime(int nb)
 {
-	if (power < 0)
+	int	i;
+
+	i = 2;
+	if (nb < 2)
 		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	return (nb * ft_recursive_power(nb, power - 1));
+	while (i <= nb / 2)
+	{
+		if (nb % i == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
