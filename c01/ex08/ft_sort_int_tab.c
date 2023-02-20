@@ -6,7 +6,7 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 11:47:16 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/10 11:56:17 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:26:45 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ void	ft_quicksort(int *tab, int low, int high)
 	int	pi;
 
 	pi = 0;
-
 	if (low < high)
 	{
 		pi = ft_partition(tab, low, high);
-
 		ft_quicksort(tab, low, pi - 1);
 		ft_quicksort(tab, pi + 1, high);
 	}

@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/16 19:19:39 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/18 21:03:41 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/19 21:38:29 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/19 21:55:42 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-int	main(int argc, char *argv[])
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (argc <= 0)
-		return (1);
-	while (argv[0][i])
-		write(1, &argv[0][i++], 1);
-	write(1, "\n", 1);
-	return (0);
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strdup(char *str)
+{
+	char	*cpy;
+	int		i;
+	int		size;
+
+	size = ft_strlen(str);
+	i = 0;
+	cpy = (char *)malloc(size * sizeof(char) + 1);
+	if (!cpy)
+		return (0);
+	while (str[i])
+	{
+		cpy[i] = str[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }
