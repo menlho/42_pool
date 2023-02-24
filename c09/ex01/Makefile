@@ -3,30 +3,34 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: scdubois <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: momascle <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/18 13:52:29 by scdubois          #+#    #+#              #
-#    Updated: 2023/02/18 13:53:55 by scdubois         ###   ########.fr        #
+#    Created: 2023/02/23 22:28:49 by momascle          #+#    #+#              #
+#    Updated: 2023/02/23 22:47:26 by momascle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = rush-02
+NAME = libft.a
+SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
 
-SOURCES = srcs/rush02_1.c \
-			 srcs/rush02_2.c \
-			 srcs/rush02_3.c \
-			 srcs/rush02_4.c
+OBJS = ${SRCS:.c=.o}
+HEADERS = includes/
+RM		= rm -f
 
-OBJECTS = $(SOURCES:.c=.o)
+CFLAGS = -Wall -Wextra -Werror
 
-$(NAME): $(OBJECTS)
-	cc -o $(NAME) $(OBJECTS)
+.c.o:
+		gcc ${CFLAGS} -I $(HEADERS) -c $< -o ${<:.c=.o}
 
-all:
-	make
+$(NAME): ${OBJS}
+		ar rcs ${NAME} ${OBJS}
 
-fclean: clean
-	rm -f $(NAME)
+all:	${NAME}
 
 clean:
-	rm -f $(OBJECTS)
+		${RM} ${OBJS}
+
+fclean:	clean
+		${RM} ${NAME}
+
+re:		fclean all

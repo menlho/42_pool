@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 21:38:29 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/22 22:51:11 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/21 22:30:13 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/21 23:38:26 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
-#include <stdio.h>
 
-int	ft_strlen(char *str)
+#ifndef		FT_STOCK_H
+# define	FT_STOCK_H
+
+
+typedef struct	s_stock_str
 {
-	int	i;
+	int size;
+	char *str;
+	char *copy;
+}				t_stock_str;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+void	ft_show_tab(struct s_stock_str *par);
+t_stock_str	*ft_strs_to_tab(int ac, char **av);
 
-char	*ft_strdup(char *str)
-{
-	char	*cpy;
-	int		i;
-	int		size;
-
-	size = ft_strlen(str);
-	i = 0;
-	cpy = (char *)malloc((size + 1) * sizeof(char));
-	if (!cpy)
-		return (0);
-	while (str[i])
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
+#endif

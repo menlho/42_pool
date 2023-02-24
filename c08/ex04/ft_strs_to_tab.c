@@ -6,13 +6,11 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:38:43 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/22 05:04:32 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:34:27 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "ft_stock_str.h"
 #include <stdlib.h>
-//#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -24,42 +22,61 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(char *src)
 {
-	char	*cpy;
+	char	*copy;
 	int		i;
-	int		size;
 
-	size = ft_strlen(str);
 	i = 0;
-	cpy = (char *)malloc((size + 1) * sizeof(char));
-	if (!cpy)
+	while (src[i])
+		i++;
+	copy = malloc(sizeof(char) * i + 1);
+	if (!copy)
 		return (0);
-	while (str[i])
+	i = 0;
+	while (src[i])
 	{
-		cpy[i] = str[i];
+		copy[i] = src[i];
 		i++;
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	copy[i] = '\0';
+	return (copy);
 }
 
 struct	s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	t_stock_str	*tab;
+	t_stock_str	*dest;
 	int			i;
 
-	tab = malloc((ac + 1) * sizeof(t_stock_str));
-	if ((tab == NULL) || (ac == 0) || (!av))
-		return (NULL);
+	dest = malloc(sizeof(t_stock_str) *(ac + 1));
+	if (!dest)
+		return (0);
 	i = 0;
 	while (i < ac)
 	{
-		tab[i].size = ft_strlen(av[i]);
-		tab[i].str = av[i];
-		tab[i].copy = ft_strdup(av[i]);
+		dest[i].size = ft_strlen(av[i]);
+		dest[i].str = av[i];
+		dest[i].copy = ft_strdup(av[i]);
 		i++;
 	}
-	tab[i].str = 0;
-	return (tab);
+	dest[i].str = 0;
+	return (dest);
 }
+/*int	main()
+{
+	char *tab[] = {
+	};
+	t_stock_str	*mystruct;
+	mystruct = ft_strs_to_tab(-1, NULL);
+	
+	int i = 0;
+	while(mystruct[i].str)
+	{
+		printf("%s\n", mystruct[i].str);
+		printf("%s\n", mystruct[i].copy);
+		printf("%d\n", mystruct[i].size);
+		i++;
+	}
+	system("leaks a.out");
+	return(0);
+}*/

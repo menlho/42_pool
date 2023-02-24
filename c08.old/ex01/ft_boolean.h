@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 21:37:47 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/19 21:55:57 by momascle         ###   ########.fr       */
+/*   Created: 2023/02/21 17:27:35 by momascle          #+#    #+#             */
+/*   Updated: 2023/02/22 02:36:10 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char	*ft_strdup(char *str);
-int	ft_strlen(char *str);
 
-int main(void)
-{	
-	char *cpy;
-	char *original = "MORGAM M ANGIE";
-	cpy = ft_strdup(original);
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-	printf("original	--> %s\n len = %d \n", original, ft_strlen(original));
-	printf("copy		--> %s\n len = %d \n", cpy, ft_strlen(cpy));
-	return (0);
-}
+# include <unistd.h>
+
+typedef int	t_bool;
+
+# define EVEN(nb) (nb % 2 == 0)
+# define TRUE 1
+# define FALSE 0
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+# define SUCCESS 0
+
+#endif

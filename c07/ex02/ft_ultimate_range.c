@@ -6,14 +6,14 @@
 /*   By: momascle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 20:03:59 by momascle          #+#    #+#             */
-/*   Updated: 2023/02/20 22:16:05 by momascle         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:24:58 by momascle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int absolute(int nb)
+int	absolute(int nb)
 {
 	if (nb < 0)
 		nb = -nb;
@@ -22,9 +22,9 @@ int absolute(int nb)
 	return (nb);
 }
 
-int sizetab(int min, int max)
+int	sizetab(int min, int max)
 {
-	if (min >=  max)
+	if (min >= max)
 		return (0);
 	return (absolute(max - min));
 }
@@ -52,10 +52,10 @@ int	ft_range(int **range, int min, int max)
 	return (i);
 }
 
-int main(void)
+/*int main(void)
 {
 	int min = 10;
-	int max = 11;
+	int max = 100;
 	int i = 0;
 	int	*array;
 	
@@ -68,4 +68,4 @@ int main(void)
 	}
 	printf("adress of array ----> %p\n", array);
 return(0);
-}
+}*/
